@@ -1,14 +1,122 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\documentclass[10pt]{article}
 
-\title{Statistical}
-\author{Paige Lorson}
-\date{March 2020}
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\usepackage{xspace}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{lipsum,xcolor}
+\usepackage{graphicx}
+\usepackage{float,caption,subcaption,wrapfig}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\sisetup{mode=text,
+         group-separator={,},
+         detect-all,
+         binary-units,
+         list-units = single,
+         range-units = single,
+         range-phrase = --,
+         per-mode = symbol-or-fraction,
+         list-final-separator = {, and }
+}
+
+\lstset{basicstyle=\ttfamily,
+        breaklines=true,
+        numbersep=-8pt,
+        numberstyle=\small,
+        numbers=right,
+        frame = single, 
+        showstringspaces=false,    
+        keywordstyle=\color{blue}\bf,
+        commentstyle=\color{darkgray},
+        stringstyle=\color{purple}\bf,
+  }
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\bar{bar}
+
+\headheight = 13.6pt
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{PH 641 Sp2020}
+\chead{Background Questions}
+\rhead{Due 1:00 pm, 31 March 2020}
+
+\rfoot{Submitted by: Paige Lorson}
+\tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
+\newcommand{\volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newenvironment{Solution}
+    {\textbf{Solution:}
+    
+    \vspace{5mm}
+    \begin{tcolorbox}
+    }
+    {
+    \end{tcolorbox}
+    \vspace{5mm}
+    % \newpage
+    }
+
 
 \begin{document}
 
-\maketitle
+\noindent\textbf{Note:} This survey serves to inform your instructor and to test the homework submission via gradescope. It will be graded like a regular homework set.
 
-\section{Introduction}
+\begin{enumerate}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\item List previous courses in Thermodynamics and Statistical Mechanics? (Please give institution, length (x terms,  x semesters), textbooks)
+
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage
+
+\item How would you rate your background in Thermodynamics? 
+
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage 
+
+\item How would you rate your background in Statistical Mechanics? 
+
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage 
+
+\item What is your field of interest/research? (For example: solid state (materials, organic, nanotechnology), biophysics, optics, astrophysics, particles, undecided, etc.)
+
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage 
+
+\item What do you expect to learn in this course (Ph641 and Ph642)?
+
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage
+\end{enumerate}
 \end{document}
