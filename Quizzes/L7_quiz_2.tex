@@ -1,0 +1,161 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\usepackage{xspace}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{lipsum,xcolor}
+\usepackage{graphicx}
+\usepackage{float,caption,subcaption,wrapfig}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\usepackage[shortlabels]{enumitem}
+\sisetup{mode=text,
+         group-separator={,},
+         detect-all,
+         binary-units,
+         list-units = single,
+         range-units = single,
+         range-phrase = --,
+         per-mode = symbol-or-fraction,
+         list-final-separator = {, and }
+}
+
+\lstset{basicstyle=\ttfamily,
+        breaklines=true,
+        numbersep=-8pt,
+        numberstyle=\small,
+        numbers=right,
+        frame = single, 
+        showstringspaces=false,    
+        keywordstyle=\color{blue}\bf,
+        commentstyle=\color{darkgray},
+        stringstyle=\color{purple}\bf,
+  }
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\bar{bar}
+
+\headheight = 13.6pt
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{PH 641 Sp2020}
+\chead{Quiz 2}
+\rhead{Due 5:00 pm, 14 April 2020}
+
+\rfoot{Submitted by: Paige Lorson}
+\tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
+\newcommand{\volume}{{\ooalign{\hfil$\vol$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newenvironment{Solution}
+    {\textbf{Solution:}
+    
+    \vspace{5mm}
+    \begin{tcolorbox}
+    }
+    {
+    \end{tcolorbox}
+    \vspace{5mm}
+    % \newpage
+    }
+\newcommand{\vol}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\renewcommand\labelitemi{$\cdot$}
+
+\begin{document}
+
+\noindent\textbf{Quiz problem 1:} The entropy is an extensive state function for weakly interacting large systems and both the internal energy and the entropy are homogeneous functions of order 1
+
+\begin{align}\label{Uftn}
+U(\lambda S, \lambda \vol, \lambda N)=\lambda U(S, \vol, N)
+\end{align}
+\begin{align}\label{Sftn}
+S(\lambda U, \lambda \vol, \lambda N)=\lambda S(U, \vol, N)
+\end{align}
+
+From the entropy equation directly derive the Euler relation (a)
+\begin{equation}
+S=\frac{1}{T} U+\frac{p}{T} \vol-\frac{\mu}{T} N
+\end{equation}
+and the corresponding form of the Gibbs-Duhem relation (b):
+\begin{equation}
+d\left(\frac{\mu}{T}\right)=\left(\frac{U}{N}\right) d\left(\frac{1}{T}\right)+\left(\frac{\vol}{N}\right) d\left(\frac{p}{T}\right)
+\end{equation}
+\begin{enumerate}[(a)]
+\item
+\begin{Solution}
+ First we can start by differentiating equation \ref{Sftn} with respect to $\lambda$
+\begin{equation}
+    S(U, \vol, N) =\frac{\partial S(\lambda U, \lambda \vol, \lambda N)}{\partial \lambda U} \frac{\partial \lambda U}{\partial \lambda}
+    +\frac{\partial S(\lambda U, \lambda \vol, \lambda N)}{\partial \lambda \vol} \frac{\partial \lambda \vol}{\partial \lambda}
+    +\frac{\partial S(\lambda U, \lambda \vol, \lambda N)}{\partial \lambda N} \frac{\partial \lambda N}{\partial \lambda}
+\end{equation}
+Now, assume $\lambda$ has a constant value of 1.
+\begin{equation}\label{nolambda}
+    S(U, \vol, N)=\frac{\partial S(U, \vol, N)}{\partial \vol} U+\frac{\partial S(U, \vol, N)}{\partial \vol} \vol+\frac{\partial S(U, \vol, N)}{\partial N} N
+\end{equation}
+Recall TD equation,
+\begin{equation}
+    dU = T dS - p d\vol + \mu dN
+\end{equation}
+Solving for $dS$ we get
+\begin{equation}
+ dS = \frac{dU}{T} + \frac{p d\vol}{T} -\frac{\mu dN}{T} 
+\end{equation}
+From this we know that 
+\begin{equation}\label{partials}
+\left(\frac{\partial S}{\partial U}\right)_{\scriptsize{\vol}, N}=\frac{1}{T} ;
+\quad \left(\frac{\partial S}{\partial \vol}\right)_{U, N}=-\frac{p}{T} ;
+\quad \left(\frac{\partial S}{\partial N}\right)_{U, \scriptsize{\vol}}=\frac{\mu}{T}
+\end{equation}
+Combining equation \ref{partials} with equation \ref{nolambda},  we get
+\begin{equation}\label{ans1}
+\boxed{
+S=\frac{1}{T} U+\frac{p}{T} \vol-\frac{\mu}{T} N
+}
+\end{equation}
+\end{Solution}
+\newpage
+
+\item
+
+\begin{Solution}
+ Now to get the Gibbs-Duhem relation, first we take the total differential of the Euler Relation: $U = TS - p\vol +\mu N$ and solve for $dS$.
+
+\begin{equation}
+    dU = T dS + S dT -p d\vol - \vol dp +\mu dN +N d\mu
+\end{equation}
+
+\begin{equation}\label{dS}
+    dS = \frac{dU}{T} - \frac{S dT}{T} + \frac{p d\vol}{T} + \frac{\vol dp}{T} - \frac{\mu dN}{T} - \frac{N d\mu}{T}
+\end{equation}
+We can also take the total derivative of equation \ref{ans1} and get
+
+\begin{equation}
+dS=\frac{1}{T} dU + U d\frac{1}{T} + \frac{p}{T} d\vol + \vol d\frac{p}{T} -\frac{\mu}{T} dN - N d\frac{\mu}{T}
+\end{equation}
+
+Now combining our two expressions for $dS$ we get,
+
+\begin{equation}\label{dSdS}
+     - \frac{S dT}{T}  + \frac{\vol dp}{T} - \frac{N d\mu}{T} 
+    =  U d\frac{1}{T}  + \vol d\frac{p}{T}  - N d\frac{\mu}{T}
+\end{equation}
+
+AAANNNNDDDDDD... for some reason I have extra terms in this expression and I am unsure about how to remove them.
+\end{Solution}
+\end{enumerate}
+
+
+
+\end{document}

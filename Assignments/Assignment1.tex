@@ -86,7 +86,9 @@
 \begin{Solution}
 \begin{enumerate}
     \item The units of problem could not work out as written. You can't add entropy with entropy squared.
-    \item The 
+    \item From the TD equation, the partial derivative of $U$ with respects to $S$ is $T$. That is not the case for this expression.
+    \item From the TD equation, the partial derivative of $U$ with respects to $\vol$ is $-p$. That is not the case for this expression.
+
 \end{enumerate}
 \end{Solution}
 % \newpage
@@ -96,16 +98,59 @@
     \item Using the fact that $U$ is extensive, find a relation between $\alpha$, $\beta$, and $\gamma$.
     
     \begin{Solution}
-
-
+    For U extensive, we can say,
+    \begin{equation}\label{extensive}
+    U(S, \vol, N)=\frac{\partial U(S, \vol, N)}{\partial S} S + \frac{\partial U(S, \vol, N)}{\partial \vol} \vol + \frac{\partial U(S, \vol, N)}{\partial N} N
+    \end{equation}
+    This means,
+    
+    \begin{align}
+    \frac{\partial U(S, \vol, N)}{\partial S}  &=  \alpha S^{\alpha-1} \vol^\beta N^\gamma \\
+    \frac{\partial U(S, \vol, N)}{\partial \vol} &=  \beta S^{\alpha} \vol^{\beta-1} N^\gamma \\
+    \frac{\partial U(S, \vol, N)}{\partial N} &= \gamma S^{\alpha} \vol^{\beta} N^{\gamma-1}
+    \end{align}
+    Substituting these back into \ref{extensive} we get,
+    \begin{align}
+    U(S, \vol, N)&= \alpha S^\alpha \vol^\beta N^\gamma  + \beta S^\alpha \vol^\beta N^\gamma  + \gamma S^\alpha \vol^\beta N^\gamma \\
+    &=\left(\alpha + \beta + \gamma\right) S^\alpha \vol^\beta N^\gamma 
+    \end{align}
+    Form the problem statement, we know that $U \left(S,\vol,N\right) = {\left(S^\alpha \vol^\beta N^\gamma \right)}$ so,
+    \begin{equation}
+        \boxed{
+        \left(\alpha + \beta + \gamma\right) = 1
+        }
+    \end{equation}
     \end{Solution}
     % \newpage 
     \item Calculate the pressure $p$, temperature 
     $T$, and chemical potential $\mu$ as a function of $S$, $\vol$, and $N$.
     
     \begin{Solution}
-
-
+    From the TD Equation, recall, 
+    \begin{equation}
+        dU = T dS - p d\vol + \mu dN
+    \end{equation}
+    where, 
+    \begin{equation}
+        \left.\frac{\partial U}{\partial S}\right|_{\scriptsize{\vol}, N} = T \qquad \left.\frac{\partial U}{\partial \vol}\right|_{S, N} = -p \qquad \left.\frac{\partial U}{\partial N}\right|_{\scriptsize{S,\vol}} = \mu  
+    \end{equation}
+    From the previous part, this means, 
+    \begin{equation}
+        \boxed{
+        T\left(S, \vol, N\right) = \alpha S^{\alpha-1} \vol^\beta N^\gamma
+        }
+    \end{equation}
+    \begin{equation}
+        \boxed{
+        p\left(S, \vol, N\right) = -\beta S^{\alpha} \vol^{\beta-1} N^\gamma
+        }
+    \end{equation}
+    \begin{equation}
+        \boxed{
+        \mu\left(S, \vol, N\right) = \gamma S^{\alpha} \vol^{\beta} N^{\gamma-1}
+        }
+    \end{equation}
+    
     \end{Solution}
     % \newpage 
 
@@ -113,8 +158,29 @@
     \item Calculate the heat capacity at constant volume $\vol$(and constant $N$).
     
     \begin{Solution}    
+    The Constant volume heat capacity is the partial derivative of $U$ with respects to $T$. So,
     
+    \begin{equation}
+        C_v = \left.\frac{\partial U}{\partial T}\right|_{\scriptsize{\vol}}
+    \end{equation}
+    We can use the two previous parts to get an expression for $U$ in terms of $T$.
     
+    \begin{equation}
+        U = T S + \beta S^\alpha \vol^\beta N^\gamma + \gamma S^\alpha \vol^\beta N^\gamma
+    \end{equation}
+    The total derivative of this, with $N$ and $\vol$ both constant,
+    \begin{align}
+        dU &= \left.\frac{\partial U}{\partial T}\right|_S dT + \left.\frac{\partial U}{\partial S}\right|_T dS\\
+        &= S dT + \left[T + \beta\alpha S^{\alpha-1}\vol^\beta N^\gamma + \gamma\alpha S^{\alpha-1}\vol^\beta N^\gamma\right]dS
+    \end{align}
+    
+    That makes the constant volume heat capacity
+    \begin{equation}
+    \boxed{
+    C_v = S
+    }        
+    \end{equation}
+    However... this seems incorrect...
     \end{Solution}
     % \newpage 
 
@@ -149,7 +215,13 @@ Evaluate the requested partial derivative:
     
     
     \begin{Solution}
+    Since $N$, $\kappa_B$, $a$, and $b$ are constants, $p = p\left(\vol, T\right)$. To get the partial derivative $\left.\frac{\partial p}{\partial \vol}\right|_T$, we can allow $\vol$ to vary while holding $T$ constant.
     
+    \begin{equation}
+    \boxed{
+        \left.\frac{\partial p}{\partial \vol}\right|_T =  \frac{a N^2}{\vol^3} - \frac{N\kappa_B T}{\left(\vol -b N\right)^2}
+    }
+    \end{equation}
     
     \end{Solution}
     % \newpage 
@@ -158,14 +230,31 @@ Evaluate the requested partial derivative:
     
 
     \begin{Solution}
+    $U$ is a function of $T$ and $\vol$. We can use the expression for $p$ to get $U$ as a function of $T$ and $p$. 
     
+    \begin{equation}
+        T = \frac{\vol}{N\kappa_B} -\frac{b N p}{N\kappa_B} +  \frac{a N}{\vol\kappa_B} - \frac{a b N^2}{\vol^2\kappa_B}
+    \end{equation}
+    \begin{align}
+        U\left(\vol, p\right) &= \frac{3}{2} N \kappa_B \left[\frac{\vol}{N\kappa_B} -\frac{b N p}{N\kappa_B} + \frac{a N}{\vol\kappa_B} - \frac{a b N^2}{\vol^2\kappa_B}\right] - \frac{a N^2}{\vol}
+        \\
+        &= \frac{3\vol}{2} - \frac{3 b N p}{2} + \frac{ a N^2}{2 \vol} - \frac{3 a b N^3}{2 \vol^2} 
+    \end{align}
+
+    Now, the partial derivative of $U$ with respect to $\vol$, holding $p$ constant is 
     
+    \begin{equation}
+       \boxed{
+       \left.\frac{\partial U}{\partial \vol}\right|_p = \frac{3}{2} - \frac{ a N^2}{2 \vol^2} + \frac{3 a b N^3}{ \vol^3}
+       }
+    \end{equation}
+
     \end{Solution}
     % \newpage 
 \end{enumerate}
 
 
-\item In traditional thermodynamics, one defines the pressure as minus the change in energy with volume $P = \left.{ \partial E /\partial\vol  }\right|_{N,S}$, and the chemical potential as the change in energy with number of particles $\mu = \left.\partial E/\partial N \right|_{\scriptsize{\vol}, S}$. The total internal energy satisfies
+\item In traditional thermodynamics, one defines the pressure as minus the change in energy with volume $P = -\left.{ \partial E /\partial\vol  }\right|_{N,S}$, and the chemical potential as the change in energy with number of particles $\mu = \left.\partial E/\partial N \right|_{\scriptsize{\vol}, S}$. The total internal energy satisfies
 \begin{equation}\label{p4-1}
     dE = T d S - P d\vol +\mu dN
 \end{equation}
@@ -175,7 +264,22 @@ Evaluate the requested partial derivative:
     
     \begin{Solution}
 
-
+Solving for $dS$ we get
+\begin{equation}
+ dS = \frac{dE}{T} + \frac{p d\vol}{T} -\frac{\mu dN}{T} 
+\end{equation}
+The total derivative of $S(E,\vol,N)$ will have the form,
+\begin{equation}
+     dS = \left.\frac{\partial S}{\partial E} \right|_{N, \scriptsize{\vol}}  dE + \left.\frac{\partial S}{\partial N} \right|_{\scriptsize{\vol}, E} dN + \left.\frac{\partial S}{\partial \vol} \right|_{N, E} d\vol
+\end{equation}
+This means, 
+\begin{equation}
+\boxed{
+     \left.\frac{\partial S}{\partial E} \right|_{N, \scriptsize{\vol}} = \frac{1}{T} 
+     \qquad  \left.\frac{\partial S}{\partial N} \right|_{\scriptsize{\vol}, E} = -\frac{\mu}{T}
+     \qquad  \left.\frac{\partial S}{\partial \vol} \right|_{N, E} = \frac{P}{T}
+     }
+\end{equation}
     \end{Solution}
     % \newpage 
     
@@ -186,7 +290,14 @@ Evaluate the requested partial derivative:
         \left.\frac{\partial f}{\partial x}\right|_y = -1
     \end{equation}
     (Hint:  Consider the triangular path in EOPC Fig. 3.4. The first side starts at $(x_0 , y_0 , f_0 )$ and moves along a contour at constant $f$ to $y_0+\Delta y$. The resulting vertex will thus be at $\left(x_0+\left. {\partial x/\partial y}\right|_f \Delta y, y_0+\Delta y, f_0\right)$. The second side runs at constant $x$ back to $y_0$, and the third side runs at constant y back to $(x_0 , y_0 , f_0 )$. The curve must close to make $f$ a single-valued function; the resulting equation should imply the triple-product relation.)
+    
+    \begin{Solution}
+    
+    
+    \end{Solution}
+    
     \item Starting from the ‘traditional’ definitions for $P$ and $\mu$, apply your formula from part \ref{3.10b} to $S$ at fixed $E$ to derive the two equations in part \ref{3.10a} again. (This last calculation is done in the reverse direction in EOPC Section 3.4.)
+    
     \begin{Solution}
     
     
@@ -223,15 +334,23 @@ Which of the following six statements are true?
 \end{Solution}
 % \newpage
 
-\item Two coupled systems
-A thermodynamic system consists of two identical subsystems, $\alpha=\{1,2\}$ described by thermodynamic variables $T_{a}, U_{a}=C\left(T_{a}-T_{0}\right)+U_{0},$ and $S_{a}\left(T_{a}\right)$
+\item A thermodynamic system consists of two identical subsystems, $\alpha=\{1,2\}$ described by thermodynamic variables $T_{a}, U_{a}=C\left(T_{a}-T_{0}\right)+U_{0},$ and $S_{a}\left(T_{a}\right)$
 
 \begin{enumerate}
 
 \item Determine $S_{a}\left(T_{a}\right)$ for the individual subsystems.
 
 \begin{Solution}
-
+Recall from the TD equation that for a constant $\vol$ and $N$,
+\begin{equation}
+    dU = T dS
+\end{equation}
+We also know from the problem statement that $dU = CdT$. We can equate these two statements and integrate both sides from $S_0, T_0$ to $S_a, T_a$ to get the following expression for $S_a$
+\begin{equation}
+\boxed{
+    S_a = C \ln{\frac{T_a}{T_0}} + S_0
+    }
+\end{equation}
 
 \end{Solution}
 % \newpage
