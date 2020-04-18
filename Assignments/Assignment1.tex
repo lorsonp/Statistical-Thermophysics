@@ -51,8 +51,8 @@
 \pagestyle{fancy}
 
 \lhead{PH 641 Sp2020}
-\chead{Background Questions}
-\rhead{Due 1:00 pm, 31 March 2020}
+\chead{Assignment 1}
+\rhead{Due 11:59 pm, 17 March 2020}
 
 \rfoot{Submitted by: Paige Lorson}
 \tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
@@ -161,13 +161,16 @@
     The Constant volume heat capacity is the partial derivative of $U$ with respects to $T$. So,
     
     \begin{equation}
-        C_v = \left.\frac{\partial U}{\partial T}\right|_{\scriptsize{\vol}}
+        C_v = \left.\frac{\partial U}{\partial T}\right|_{\scriptsize{\vol},N} = T\left.\frac{\partial S}{\partial T}\right|_{\scriptsize{\vol},N}
     \end{equation}
-    We can use the two previous parts to get an expression for $U$ in terms of $T$.
+
+
+    We can use the previous parts and the Euler equation for extensive systems to get an expression for $U$ in terms of $T$.
     
-    \begin{equation}
-        U = T S + \beta S^\alpha \vol^\beta N^\gamma + \gamma S^\alpha \vol^\beta N^\gamma
-    \end{equation}
+    \begin{align}
+        U &= TS - p\vol + \mu N\\
+        &= T S + \beta S^\alpha \vol^\beta N^\gamma + \gamma S^\alpha \vol^\beta N^\gamma
+    \end{align}
     The total derivative of this, with $N$ and $\vol$ both constant,
     \begin{align}
         dU &= \left.\frac{\partial U}{\partial T}\right|_S dT + \left.\frac{\partial U}{\partial S}\right|_T dS\\
@@ -180,22 +183,46 @@
     C_v = S
     }        
     \end{equation}
-    However... this seems incorrect...
+    However... this seems incorrect... 
+    An alternate approach: 
+        \begin{equation}
+        % \left.\frac{\partial S}{\partial T}\right|_{\scriptsize{\vol},N} = \left[\frac{\partial U}{\partial S}\right]_{\scriptsize{\vol}, N}^{-1} \left.\frac{\partial U}{\partial T}\right|_{\scriptsize{\vol},N}
+        \left.\frac{\partial S}{\partial T}\right|_{\scriptsize{\vol},N} = \left.\frac{\partial \left[ \frac{T^{1/\alpha}}{\left[\alpha \scriptsize{\vol}^{\beta}N^{\gamma} \right]^{1/\alpha}} \right]}{\partial T}\right|_{\scriptsize{\vol},N} = \frac{1}{\alpha}\left[ T^{1/\alpha-1}\left[\alpha \scriptsize{\vol}^{\beta}N^{\gamma} \right]^{-1/\alpha} \right]
+    \end{equation}
+    \begin{equation}
+    \boxed{
+        C_v = \frac{1}{\alpha}\left[\frac{T}{\alpha \scriptsize{\vol}^{\beta}N^{\gamma}} \right]^{-1/\alpha}
+        }
+    \end{equation}
+    
     \end{Solution}
     % \newpage 
 
     \item Calculate the adiabatic compressibility (at constant $N$).
     
     \begin{Solution}    
-    
-    
+    The adiabatic compressibility is given as,
+    \begin{equation}
+        \kappa_S = -\frac{1}{\vol}\left.\frac{\partial \vol}{\partial p}\right|_{S, N}
+    \end{equation}
+    The partial, $\left.\partial \vol/\partial p\right|_{S, N}$ is equivalent to $\left[\partial p/\partial \vol\right]_{S, N}^{-1}$, so
+    \begin{equation}
+        \left.\frac{\partial \vol}{\partial p}\right|_{S, N} = \left[-\beta\left(\beta-1\right) S^{\alpha} \vol^{\beta-2} N^\gamma \right]^{-1}
+    \end{equation}
+    Thus,
+    \begin{align}
+        \kappa_S &= -\frac{1}{\vol}\left.\frac{\partial \vol}{\partial p}\right|_{S, N} = -\frac{1}{\vol \left[-\beta\left(\beta-1\right) S^{\alpha} \vol^{\beta-2} N^\gamma \right]}\\
+        &= \frac{-1}{-\beta\left(\beta-1\right)S^{\alpha} \vol^{\beta-1} N^\gamma}\\
+        &\boxed{=\frac{-1}{p\left(\beta-1\right)}
+        }
+    \end{align}
     \end{Solution}
     % \newpage 
     
     \item Based on the sign of these response functions (assume $C_v \geq 0$, $\kappa_s \geq 0$, we will prove this later), find inequalities for $\alpha$ and $\beta$.
     
     \begin{Solution}    
-    
+    If $\kappa_s \geq 0$, then \boxed{\beta<1}. If $C_v \geq 0$, then \boxed{\alpha>0}. 
     
     \end{Solution}
     % \newpage 
@@ -292,15 +319,59 @@ This means,
     (Hint:  Consider the triangular path in EOPC Fig. 3.4. The first side starts at $(x_0 , y_0 , f_0 )$ and moves along a contour at constant $f$ to $y_0+\Delta y$. The resulting vertex will thus be at $\left(x_0+\left. {\partial x/\partial y}\right|_f \Delta y, y_0+\Delta y, f_0\right)$. The second side runs at constant $x$ back to $y_0$, and the third side runs at constant y back to $(x_0 , y_0 , f_0 )$. The curve must close to make $f$ a single-valued function; the resulting equation should imply the triple-product relation.)
     
     \begin{Solution}
-    
-    
+    If $f = f(x,y)$ then,
+    \begin{align}
+        d f&=\left.\frac{\partial f}{\partial x}\right|_{y} d x+\left.\frac{\partial f}{\partial y}\right|_{x} d y\\
+        d x&=\left.\frac{\partial x}{\partial f}\right|_{y} d f+\left.\frac{\partial x}{\partial y}\right|_{f} d y\\
+        d y&=\left.\frac{\partial y}{\partial f}\right|_{x} d f+\left.\frac{\partial y}{\partial x}\right|_{f} d x
+    \end{align}
+    We next can substitute one of expressions into one of the others and compare coefficients. This gets us,
+    \begin{equation}
+        d x=\left.\frac{\partial x}{\partial f}\right|_{y} d f+\left.\frac{\partial x}{\partial y}\right|_{f}\left[\left.\frac{\partial y}{\partial f}\right|_{x} d f+\left.\frac{\partial y}{\partial x}\right|_{f} d x\right]
+    \end{equation}
+    For $d f$,
+    \begin{equation}
+        0 = \left.\frac{\partial x}{\partial f}\right|_{y} + \left.\frac{\partial x}{\partial y}\right|_{f}\left.\frac{\partial y}{\partial f}\right|_{x}
+    \end{equation}
+    and for $d x$,
+    \begin{equation}
+        1 = \left.\frac{\partial y}{\partial x}\right|_{f} \left.\frac{\partial x}{\partial y}\right|_{f}
+    \end{equation}
+    We can combine these two expressions to get,
+    \begin{equation}
+    \boxed{
+        \left.\frac{\partial x}{\partial y}\right|_f \left.\frac{\partial y}{\partial f}\right|_x \left.\frac{\partial f}{\partial x}\right|_y = -1
+        }
+    \end{equation}
     \end{Solution}
     
     \item Starting from the ‘traditional’ definitions for $P$ and $\mu$, apply your formula from part \ref{3.10b} to $S$ at fixed $E$ to derive the two equations in part \ref{3.10a} again. (This last calculation is done in the reverse direction in EOPC Section 3.4.)
     
     \begin{Solution}
     
-    
+    Given $S = S(E,\vol,N)$ and fixing $N$, then, we can say
+    \begin{align}
+        \left.\frac{\partial \vol}{\partial E}\right|_{S,N} \left.\frac{\partial E}{\partial S}\right|_{\scriptsize{\vol},N} \left.\frac{\partial S}{\partial \vol}\right|_{E,N} &= -1\\
+        &= \frac{P}{T}\left(1 /\left.\frac{\partial E}{\partial \vol}\right|_{S, N}\right) T
+    \end{align}
+    thus,
+    \begin{equation}
+        \boxed{
+        \left.\frac{\partial E}{\partial \vol}\right|_{S, N} = -P
+        }
+    \end{equation}
+    Now by fixing $\vol$,
+    \begin{align}
+        \left.\frac{\partial N}{\partial E}\right|_{S, \scriptsize{\vol}} \left.\frac{\partial S}{\partial N}\right|_{E, \scriptsize{\vol}} \left.\frac{\partial E}{\partial S}\right|_{N, \scriptsize{\vol}} &= -1\\
+        &= -\frac{\mu}{T}\left(1 /\left.\frac{\partial E}{\partial N}\right|_{S, \scriptsize{\vol}}\right) T
+    \end{align}
+    thus,
+    \begin{equation}
+        \boxed{
+        \left.\frac{\partial E}{\partial N}\right|_{S, \scriptsize{\vol}} = \mu
+        }
+    \end{equation}
+        
     \end{Solution}
     % \newpage
 \end{enumerate}
@@ -308,31 +379,25 @@ This means,
 \item A monatomic ideal gas in a piston is cycled around the path in the $P -\vol$ diagram in Fig. 5.15. Leg $a$ cools at constant volume by connecting to a heat bath at $T_c$; leg $b$ heats at constant pressure by connecting to a heat bath at $T_h$ ; leg $c$ compresses at constant temperature while remaining connected to the bath at $T_h$.
 Which of the following six statements are true?
 \begin{enumerate}
-    \item (T) (F) The cycle is reversible; no net entropy is created in the Universe.
+    \item \textbf{(T)} The cycle is reversible; no net entropy is created in the Universe.
     
-    \item (T) (F) The cycle acts as a refrigerator, using work from the piston to draw energy from the cold bath into the hot bath, cooling the cold bath.
-    
-    
-    \item (T) (F) The cycle acts as an engine, transferring heat from the hot bath to the cold bath and doing positive net work on the outside world.
+    \item \textbf{(T)} The cycle acts as a refrigerator, using work from the piston to draw energy from the cold bath into the hot bath, cooling the cold bath.
     
     
-    \item (T) (F) The work done per cycle has magnitude $\left|W\right| = P_0 \vol_0 \left|4 \log{4} - 3\right|$.
+    \item \textbf{(F)} The cycle acts as an engine, transferring heat from the hot bath to the cold bath and doing positive net work on the outside world.
     
     
-    \item (T) (F) The heat transferred into the cold bath, $Q_c$ , has magnitude $\left|Q_c \right| = \left(9/2\right)P_0 \vol_0$.
+    \item \textbf{(F)} The work done per cycle has magnitude $\left|W\right| = P_0 \vol_0 \left|4 \log{4} - 3\right|$.
     
     
-    \item (T) (F) The heat transferred from the hot bath, $Q_h$ , plus the net work $W$ done by the piston onto the gas, equals the heat $Q_c$ transferred into the cold bath.
+    \item \textbf{(T)} The heat transferred into the cold bath, $Q_c$ , has magnitude $\left|Q_c \right| = \left(9/2\right)P_0 \vol_0$.
+    
+    \item \textbf{(T)} The heat transferred from the hot bath, $Q_h$ , plus the net work $W$ done by the piston onto the gas, equals the heat $Q_c$ transferred into the cold bath.
     
     
 \end{enumerate}
-% Related formul\ae: P V = N R k B T ; U = (3/2)N k B T ; ∆S = Q/T ; W = − P dV ; ∆U = Q + W . Notice that the signs of the various terms depend on convention (heat flow out vs. heat flow in); you should work out the signs on physical grounds.
 
-\begin{Solution}
-
-
-\end{Solution}
-% \newpage
+\newpage
 
 \item A thermodynamic system consists of two identical subsystems, $\alpha=\{1,2\}$ described by thermodynamic variables $T_{a}, U_{a}=C\left(T_{a}-T_{0}\right)+U_{0},$ and $S_{a}\left(T_{a}\right)$
 
@@ -342,13 +407,13 @@ Which of the following six statements are true?
 
 \begin{Solution}
 Recall from the TD equation that for a constant $\vol$ and $N$,
-\begin{equation}
+\begin{equation}\label{dutds}
     dU = T dS
 \end{equation}
-We also know from the problem statement that $dU = CdT$. We can equate these two statements and integrate both sides from $S_0, T_0$ to $S_a, T_a$ to get the following expression for $S_a$
+We also know from the problem statement that $dU = CdT$. We can equate these two statements and integrate both sides from $S_0, T_0$ to $S_a, T_a$ to get the following expression for $S_a$ (Note: The reference state for $S_a$ is set to the initial temperature such that $S_0 = 0$).
 \begin{equation}
 \boxed{
-    S_a = C \ln{\frac{T_a}{T_0}} + S_0
+    S_a = C \ln{\frac{T_a}{T_0}}
     }
 \end{equation}
 
@@ -356,19 +421,49 @@ We also know from the problem statement that $dU = CdT$. We can equate these two
 % \newpage
 
 \item Determine $U\left(T_{1}, T_{2}\right)$ and $S\left(T_{1}, T_{2}\right)$ for the total system.
-Now, consider the total system, where the two subsystems can exchange energy with each other but not with any external environment. The initial energies and initial temperatures of the two subsystems are $U_{i, 1}$ and $U_{i, 2}$ and $T_{i, 1}$ and $T_{i, 2}$ respectively.
+Now, consider the total system, where the two subsystems can exchange energy with each other but not with any external environment. The initial energies and initial temperatures of the two subsystems are $U_{0, 1}$ and $U_{0, 2}$ and $T_{0, 1}$ and $T_{0, 2}$ respectively.
 
 \begin{Solution}
-
-
+% Because $U$ and $S$ are both extensive, the values for the entire system will be double that of the identical individual systems.
+\begin{equation}
+    \boxed{
+    U_{a} = C \left(T_{a,1}-T_{0,1}\right)+U_{0,1} + C \left(T_{a,2}-T_{0,2}\right)+U_{0,2}
+    }
+\end{equation}
+\begin{equation}
+\boxed{
+    S_a = C \ln{\frac{T_{a,1}}{T_{0,1}}} + C \ln{\frac{T_{a,2}}{T_{0,2}}}
+    } = \boxed{
+    C \ln{\frac{T_{a,1}T_{a,2}}{T_{0,1}T_{0,2}}}}
+\end{equation}
 \end{Solution}
 % \newpage
 
-\item Determine and plot the entropy of the total system and discuss it as a function of $U_{1}$. (For the graph of $S\left(U_{1}\right)$ use $U_{i, 1}=3 C T_{0}$ and $U_{i, 2}=C T_{0}$.)
+\item Determine and plot the entropy of the total system and discuss it as a function of $U_{1}$. (For the graph of $S\left(U_{1}\right)$ use $U_{0, 1}=3 C T_{0}$ and $U_{0, 2}=C T_{0}$.)
 
 \begin{Solution}
+% To get $S(U_1)$ we need to start with equation \ref{dutds} and integrate with respect to $U$ and $S$,
+% \begin{equation}
+%     \int_{U_0}^U dU = 
+% \end{equation}
+We can get the temperature of each system as a function of $U$,
+\begin{equation}
+    T_{a,\alpha} = \frac{U_{a,\alpha} - U_{0,\alpha}}{C}+T_{0,\alpha}
+\end{equation}
+We can use this with the definitions for $U_{0,\alpha}$ to get $S_a(U)$
 
-
+\begin{equation}
+    S_a =  C \ln{\frac{\left(\frac{U_{a,1}}{C} - 2 T_{0,1} \right) \left(\frac{U_{a,2}}{C}\right)}{T_{0,1}T_{0,2}}} 
+\end{equation}
+Now recall that $U = U_1 + U_2$,  so 
+\begin{align}
+    S_a &=  C \ln{\frac{\left(\frac{U_{a,1}}{C} - 2 T_{0,1} \right) \left(\frac{U_a - U_{a,1} }{C}\right)}{T_{0,1}T_{0,2}}}\\
+    &\boxed{= C \ln{\frac{U_{a}U_{a,1} + 2CT_{0,1}U_{a,1} - U_{a,1}^2 - 2CT_{0,1}U_{a}}{C^2 T_{0,1}T_{0,2}}}}
+\end{align}
+The total internal energy is conserved, so it is a constant. The initial temperatures and $C$ are also constant. Thus, $S$ is only a function of $U_1$ and has the form,
+\begin{align}
+    S_a = C \ln{a U_{a,1} - bU_{a,1}^2 + c}
+\end{align}
 \end{Solution}
 % \newpage
 
@@ -380,7 +475,7 @@ Now, consider the total system, where the two subsystems can exchange energy wit
 \end{Solution}
 % \newpage
 
-\item Determine the entropy increase for the total system after reaching equilibrium as a function of $T_{i, 1}$ and $T_{i, 2}$
+\item Determine the entropy increase for the total system after reaching equilibrium as a function of $T_{0, 1}$ and $T_{0, 2}$
 
 \begin{Solution}
 
@@ -388,7 +483,7 @@ Now, consider the total system, where the two subsystems can exchange energy wit
 \end{Solution}
 % \newpage
 
-\item Now consider the case where $T_{i, 1}$ and $T_{i, 2}$ differ only slightly from the equilibrium temperature $T_{f}$ of the total system: $T_{i, 1}=T_{f}+\Delta T / 2$ and $U_{i, 2}=$ $T_{f}-\Delta T / 2 .$ Determine the entropy gain $\Delta S=S_{f}-S_{i}$ up to second order in $\Delta T$ and $\mathrm{up}$ to first order in $\Delta T$ for the individual subsystems. Interpret the result.
+\item Now consider the case where $T_{0, 1}$ and $T_{0, 2}$ differ only slightly from the equilibrium temperature $T_{f}$ of the total system: $T_{0, 1}=T_{f}+\Delta T / 2$ and $U_{0, 2}=$ $T_{f}-\Delta T / 2 .$ Determine the entropy gain $\Delta S=S_{f}-S_{0}$ up to second order in $\Delta T$ and $\mathrm{up}$ to first order in $\Delta T$ for the individual subsystems. Interpret the result.
 
 \begin{Solution}
 
