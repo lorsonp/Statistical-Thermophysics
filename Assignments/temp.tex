@@ -1,0 +1,160 @@
+
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\usepackage{xspace}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{lipsum,xcolor}
+\usepackage{graphicx}
+\usepackage{float,caption,subcaption,wrapfig}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\sisetup{mode=text,
+         group-separator={,},
+         detect-all,
+         binary-units,
+         list-units = single,
+         range-units = single,
+         range-phrase = --,
+         per-mode = symbol-or-fraction,
+         list-final-separator = {, and }
+}
+
+\lstset{basicstyle=\ttfamily,
+        breaklines=true,
+        numbersep=-8pt,
+        numberstyle=\small,
+        numbers=right,
+        frame = single, 
+        showstringspaces=false,    
+        keywordstyle=\color{blue}\bf,
+        commentstyle=\color{darkgray},
+        stringstyle=\color{purple}\bf,
+  }
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\bar{bar}
+
+\headheight = 13.6pt
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{PH 641 Sp2020}
+\chead{Assignment 1}
+\rhead{Due 11:59 pm, 17 March 2020}
+
+\rfoot{Submitted by: Paige Lorson}
+\tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
+\newcommand{\volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newenvironment{Solution}
+    {\textbf{Solution:}
+    
+    \vspace{5mm}
+    \begin{tcolorbox}
+    }
+    {
+    \end{tcolorbox}
+    \vspace{5mm}
+    % \newpage
+    }
+\newcommand{\vol}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\renewcommand\labelitemi{$\cdot$}
+
+\begin{document}
+
+
+A thermodynamic system consists of two identical subsystems, $\alpha=\{1,2\}$ described by thermodynamic variables $T_{a}, U_{a}=C\left(T_{a}-T_{0}\right)+U_{0},$ and $S_{a}\left(T_{a}\right)$
+
+\begin{enumerate}
+
+\item Determine $S_{a}\left(T_{a}\right)$ for the individual subsystems.
+
+\begin{Solution}
+Recall from the TD equation that for a constant $\vol$ and $N$,
+\begin{equation}\label{dutds}
+    dU = T dS
+\end{equation}
+We also know from the problem statement that $dU = CdT$. We can equate these two statements and integrate both sides from $S_0, T_0$ to $S_a, T_a$ to get the following expression for $S_a$ (Note: The reference state for $S_a$ is set to the initial temperature such that $S_0 = 0$).
+\begin{equation}
+\boxed{
+    S_a = C \ln{\frac{T_a}{T_0}}
+    }
+\end{equation}
+
+\end{Solution}
+% \newpage
+
+\item Determine $U\left(T_{1}, T_{2}\right)$ and $S\left(T_{1}, T_{2}\right)$ for the total system.
+Now, consider the total system, where the two subsystems can exchange energy with each other but not with any external environment. The initial energies and initial temperatures of the two subsystems are $U_{i, 1}$ and $U_{i, 2}$ and $T_{i, 1}$ and $T_{i, 2}$ respectively.
+
+\begin{Solution}
+% Because $U$ and $S$ are both extensive, the values for the entire system will be double that of the identical individual systems.
+\begin{equation}
+    \boxed{
+    U_{a} = C \left(T_{a,1}-T_{i,1}\right)+U_{i,1} + C \left(T_{a,2}-T_{i,2}\right)+U_{i,2}
+    }
+\end{equation}
+\begin{equation}
+\boxed{
+    S_a = C \ln{\frac{T_{a,1}}{T_{i,1}}} + C \ln{\frac{T_{a,2}}{T_{i,2}}}
+    } = \boxed{
+    C \ln{\frac{T_{a,1}T_{a,2}}{T_{i,1}T_{i,2}}}}
+\end{equation}
+\end{Solution}
+% \newpage
+
+% \item Determine and plot the entropy of the total system and discuss it as a function of $U_{1}$. (For the graph of $S\left(U_{1}\right)$ use $U_{i, 1}=3 C T_{0}$ and $U_{i, 2}=C T_{0}$.)
+
+% \begin{Solution}
+% To get $S(U_1)$ we need to start with equation \ref{dutds} and integrate with respect to $U$ and $S$,
+% \begin{equation}
+%     \int_{U_0}^U dU = 
+% \end{equation}
+
+% \end{Solution}
+% % \newpage
+
+% \item Using the maximum principle for the entropy, determine the equilibrium temperatures and energies for the two subsystems.
+
+% \begin{Solution}
+
+
+% \end{Solution}
+% % \newpage
+
+% \item Determine the entropy increase for the total system after reaching equilibrium as a function of $T_{i, 1}$ and $T_{i, 2}$
+
+% \begin{Solution}
+
+
+% \end{Solution}
+% % \newpage
+
+% \item Now consider the case where $T_{i, 1}$ and $T_{i, 2}$ differ only slightly from the equilibrium temperature $T_{f}$ of the total system: $T_{i, 1}=T_{f}+\Delta T / 2$ and $U_{i, 2}=$ $T_{f}-\Delta T / 2 .$ Determine the entropy gain $\Delta S=S_{f}-S_{i}$ up to second order in $\Delta T$ and $\mathrm{up}$ to first order in $\Delta T$ for the individual subsystems. Interpret the result.
+
+% \begin{Solution}
+
+
+% \end{Solution}
+% % \newpage
+
+% \item Express the entropy $S\left(U_{f}\right)$ and energy $U\left(T_{f}\right)$ of the total system after reaching equilibrium in terms of the total energy $U_{f}$ and equilibrium temperature $T_{f} .$ Discuss your result.
+
+% \begin{Solution}
+
+
+% \end{Solution}
+\end{enumerate}
+\end{document}
