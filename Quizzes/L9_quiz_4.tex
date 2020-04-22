@@ -1,0 +1,151 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\usepackage{xspace}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{lipsum,xcolor}
+\usepackage{graphicx}
+\usepackage{float,caption,subcaption,wrapfig}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\usepackage[makeroom]{cancel}
+\usepackage[shortlabels]{enumitem}
+\sisetup{mode=text,
+         group-separator={,},
+         detect-all,
+         binary-units,
+         list-units = single,
+         range-units = single,
+         range-phrase = --,
+         per-mode = symbol-or-fraction,
+         list-final-separator = {, and }
+}
+
+\lstset{basicstyle=\ttfamily,
+        breaklines=true,
+        numbersep=-8pt,
+        numberstyle=\small,
+        numbers=right,
+        frame = single, 
+        showstringspaces=false,    
+        keywordstyle=\color{blue}\bf,
+        commentstyle=\color{darkgray},
+        stringstyle=\color{purple}\bf,
+  }
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\bar{bar}
+
+\headheight = 13.6pt
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{PH 641 Sp2020}
+\chead{Quiz 4}
+\rhead{Due 5:00 pm, 18 April 2020}
+
+\rfoot{Submitted by: Paige Lorson}
+\tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
+\newcommand{\volume}{{\ooalign{\hfil$\vol$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newenvironment{Solution}
+    {\textbf{Solution:}
+    
+    \vspace{5mm}
+    \begin{tcolorbox}
+    }
+    {
+    \end{tcolorbox}
+    \vspace{5mm}
+    % \newpage
+    }
+\newcommand{\vol}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\renewcommand\labelitemi{$\cdot$}
+
+\begin{document}
+
+\noindent\textbf{Quiz problem 1:}  Construct a thermodynamic potential with natural variables entropy $S,$ pressure $p,$ and particle number $N:$ Enthalpy $H(T, p, N)$
+\begin{enumerate}
+\item  Derive the thermodynamic identity for $H$
+
+\begin{Solution}
+Recall that,
+\begin{equation}
+    dU = TdS - pd\vol +\mu dN 
+\end{equation}
+where,
+\begin{equation}
+    \left.\frac{\partial U}{\partial S}\right|_{\scriptsize{\vol}, N} = T \qquad \left.\frac{\partial U}{\partial \vol}\right|_{S, N} = -p \qquad \left.\frac{\partial U}{\partial N}\right|_{\scriptsize{S,\vol}} = \mu  
+\end{equation}
+We want to transform $U(S,\vol,N)$ to $H(T, p, N)$, so let's define 
+\begin{align}
+    H&\equiv U - \vol\left.\frac{\partial U}{\partial p}\right|_{S, N}\\
+    &\equiv U + p\vol 
+\end{align}  
+So,
+\begin{equation}
+    \boxed{
+    H = U + p\vol 
+    }
+\end{equation}
+\end{Solution}
+
+\item Using stability considerations for $H$ (Taylor series expansion), show that $C_{p} \geq 0$
+
+\begin{Solution}
+\begin{equation}
+    dH = TdS + \vol dp +\mu dN
+\end{equation}
+$C_p$ is defined as the partial of $H$ with respect to $T$ at constant $p$, So
+\begin{align}
+    C_p &= \left.\frac{\partial H}{\partial T}\right|_p
+\end{align}
+
+The Taylor series expansion of $H$ is,
+\begin{align}
+    H\left(T,p,N\right) \approx H\left(T,p,N_0\right) &+ \left[\left.\frac{\partial H}{\partial T}\right|_{p,N} dT + \left.\frac{\partial H}{\partial p}\right|_{T,N} dp  + \left.\frac{\partial H}{\partial N}\right|_{T,p} dN\right] \\&+ \frac{1}{4}\left[\left.\frac{\partial^2 H}{{\partial T}^2}\right|_{p,N} dT^2 + \left.\frac{\partial^2 H}{{\partial p}^2}\right|_{T,N} dp^2  + \left.\frac{\partial^2 H}{{\partial N}^2}\right|_{T,p} dN^2\right] \\&+ \frac{1}{4}\left[\left.\frac{\partial^2 H}{{\partial T \partial p}}\right|_{N} dT dp + \left.\frac{\partial^2 H}{{\partial p \partial N}}\right|_{T} dp dN  + \left.\frac{\partial^2 H}{{\partial N \partial T}}\right|_{p} dN dT\right]
+\end{align}
+
+\begin{align}
+    dH\left(T,p,N\right) \approx C_p dT &+ \vol dp  + \mu dN \\+& \frac{1}{4}\left[\left.\frac{\partial^2 H}{{\partial T}^2}\right|_{p,N} dT^2 + \left.\frac{\partial^2 H}{{\partial p}^2}\right|_{T,N} dp^2  + \left.\frac{\partial^2 H}{{\partial N}^2}\right|_{T,p} dN^2\right]\\&+ \frac{1}{4}\left[\left.\frac{\partial^2 H}{{\partial T \partial p}}\right|_{N} dT dp + \left.\frac{\partial^2 H}{{\partial p \partial N}}\right|_{T} dp dN  + \left.\frac{\partial^2 H}{{\partial N \partial T}}\right|_{p} dN dT\right]
+\end{align}
+The expression in convex, so we get that all of diagonal second order partials are strictly positive. Consider the case where only $dT$ is non-zero. Then,
+
+\begin{align}
+    dH\left(T,p,N\right) \approx C_p dT &+  \frac{1}{4}\left.\frac{\partial^2 H}{{\partial T}^2}\right|_{p,N} dT^2 \geq 0
+\end{align}
+Since the second order can not be negative, neither can $C_p$. Thus,
+\begin{equation}
+    \boxed{C_p \geq 0}
+\end{equation}
+
+% \begin{equation}
+%     H\left(T\right)_{p_0,N_0} \approx H(T_0) + \frac{\partial H}{\partial T} dT
+% \end{equation}
+% So,
+% \begin{equation}
+%     \frac{\partial H}{\partial T} \approx \frac{H\left(T\right) - H\left(T_0\right)}{dT}
+% \end{equation}
+
+\end{Solution}
+
+% \item (Optional, no need to turn in) Calculate all Maxwell relations that can
+% be derived from $H$
+
+% \begin{Solution}
+
+% \end{Solution}
+
+\end{enumerate}
+\end{document}
