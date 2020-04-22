@@ -91,7 +91,7 @@
 
 \end{enumerate}
 \end{Solution}
-% \newpage
+\newpage
 
 \item The internal energy of a system is given by  $U\left(S,\vol,N\right) = {\left(S^\alpha \vol^\beta N^\gamma \right)}$
 \begin{enumerate}
@@ -152,7 +152,7 @@
     \end{equation}
     
     \end{Solution}
-    % \newpage 
+    \newpage 
 
 
     \item Calculate the heat capacity at constant volume $\vol$(and constant $N$).
@@ -196,7 +196,7 @@
     \end{equation}
     
     \end{Solution}
-    % \newpage 
+    \newpage 
 
     \item Calculate the adiabatic compressibility (at constant $N$).
     
@@ -225,7 +225,7 @@
     If $\kappa_s \geq 0$, then \boxed{\beta<1}. If $C_v \geq 0$, then \boxed{\alpha>0}. 
     
     \end{Solution}
-    % \newpage 
+\newpage 
 
 \end{enumerate}
 
@@ -238,7 +238,7 @@
 Evaluate the requested partial derivative: 
 
 \begin{enumerate}
-    \item $\left.\frac{\partial p}{\partial \vol}\right|_T$
+    \item $\left.\frac{\partial p}{\partial \scriptsize{\vol}}\right|_T$
     
     
     \begin{Solution}
@@ -253,7 +253,7 @@ Evaluate the requested partial derivative:
     \end{Solution}
     % \newpage 
 
-    \item $\left.\frac{\partial U}{\partial \vol}\right|_p$
+    \item $\left.\frac{\partial U}{\partial \scriptsize{\vol}}\right|_p$
     
 
     \begin{Solution}
@@ -277,9 +277,9 @@ Evaluate the requested partial derivative:
     \end{equation}
 
     \end{Solution}
-    % \newpage 
-\end{enumerate}
 
+\end{enumerate}
+\newpage 
 
 \item In traditional thermodynamics, one defines the pressure as minus the change in energy with volume $P = -\left.{ \partial E /\partial\vol  }\right|_{N,S}$, and the chemical potential as the change in energy with number of particles $\mu = \left.\partial E/\partial N \right|_{\scriptsize{\vol}, S}$. The total internal energy satisfies
 \begin{equation}\label{p4-1}
@@ -291,24 +291,24 @@ Evaluate the requested partial derivative:
     
     \begin{Solution}
 
-Solving for $dS$ we get
-\begin{equation}
- dS = \frac{dE}{T} + \frac{p d\vol}{T} -\frac{\mu dN}{T} 
-\end{equation}
-The total derivative of $S(E,\vol,N)$ will have the form,
-\begin{equation}
-     dS = \left.\frac{\partial S}{\partial E} \right|_{N, \scriptsize{\vol}}  dE + \left.\frac{\partial S}{\partial N} \right|_{\scriptsize{\vol}, E} dN + \left.\frac{\partial S}{\partial \vol} \right|_{N, E} d\vol
-\end{equation}
-This means, 
-\begin{equation}
-\boxed{
-     \left.\frac{\partial S}{\partial E} \right|_{N, \scriptsize{\vol}} = \frac{1}{T} 
-     \qquad  \left.\frac{\partial S}{\partial N} \right|_{\scriptsize{\vol}, E} = -\frac{\mu}{T}
-     \qquad  \left.\frac{\partial S}{\partial \vol} \right|_{N, E} = \frac{P}{T}
-     }
-\end{equation}
+    Solving for $dS$ we get
+    \begin{equation}
+     dS = \frac{dE}{T} + \frac{p d\vol}{T} -\frac{\mu dN}{T} 
+    \end{equation}
+    The total derivative of $S(E,\vol,N)$ will have the form,
+    \begin{equation}
+         dS = \left.\frac{\partial S}{\partial E} \right|_{N, \scriptsize{\vol}}  dE + \left.\frac{\partial S}{\partial N} \right|_{\scriptsize{\vol}, E} dN + \left.\frac{\partial S}{\partial \vol} \right|_{N, E} d\vol
+    \end{equation}
+    This means, 
+    \begin{equation}
+    \boxed{
+         \left.\frac{\partial S}{\partial E} \right|_{N, \scriptsize{\vol}} = \frac{1}{T} 
+         \qquad  \left.\frac{\partial S}{\partial N} \right|_{\scriptsize{\vol}, E} = -\frac{\mu}{T}
+         \qquad  \left.\frac{\partial S}{\partial \vol} \right|_{N, E} = \frac{P}{T}
+         }
+    \end{equation}
     \end{Solution}
-    % \newpage 
+    \newpage 
     
     \item \label{3.10b} Show, if $f$ is a function of $x$ and $y$ that 
     \begin{equation}
@@ -344,7 +344,7 @@ This means,
         }
     \end{equation}
     \end{Solution}
-    
+    \newpage 
     \item Starting from the ‘traditional’ definitions for $P$ and $\mu$, apply your formula from part \ref{3.10b} to $S$ at fixed $E$ to derive the two equations in part \ref{3.10a} again. (This last calculation is done in the reverse direction in EOPC Section 3.4.)
     
     \begin{Solution}
@@ -373,8 +373,8 @@ This means,
     \end{equation}
         
     \end{Solution}
-    % \newpage
 \end{enumerate}
+\newpage 
 
 \item A monatomic ideal gas in a piston is cycled around the path in the $P -\vol$ diagram in Fig. 5.15. Leg $a$ cools at constant volume by connecting to a heat bath at $T_c$; leg $b$ heats at constant pressure by connecting to a heat bath at $T_h$ ; leg $c$ compresses at constant temperature while remaining connected to the bath at $T_h$.
 Which of the following six statements are true?
@@ -437,15 +437,12 @@ Now, consider the total system, where the two subsystems can exchange energy wit
     C \ln{\frac{T_{a,1}T_{a,2}}{T_{0,1}T_{0,2}}}}
 \end{equation}
 \end{Solution}
-% \newpage
+\newpage
 
 \item Determine and plot the entropy of the total system and discuss it as a function of $U_{1}$. (For the graph of $S\left(U_{1}\right)$ use $U_{0, 1}=3 C T_{0}$ and $U_{0, 2}=C T_{0}$.)
 
 \begin{Solution}
-% To get $S(U_1)$ we need to start with equation \ref{dutds} and integrate with respect to $U$ and $S$,
-% \begin{equation}
-%     \int_{U_0}^U dU = 
-% \end{equation}
+
 We can get the temperature of each system as a function of $U$,
 \begin{equation}
     T_{a,\alpha} = \frac{U_{a,\alpha} - U_{0,\alpha}}{C}+T_{0,\alpha}
@@ -461,16 +458,36 @@ Now recall that $U = U_1 + U_2$,  so
     &\boxed{= C \ln{\frac{U_{a}U_{a,1} + 2CT_{0,1}U_{a,1} - U_{a,1}^2 - 2CT_{0,1}U_{a}}{C^2 T_{0,1}T_{0,2}}}}
 \end{align}
 The total internal energy is conserved, so it is a constant. The initial temperatures and $C$ are also constant. Thus, $S$ is only a function of $U_1$ and has the form,
-\begin{align}
-    S_a = C \ln{a U_{a,1} - bU_{a,1}^2 + c}
-\end{align}
+\begin{equation}
+    S_a = C \ln{a U_{a,1} - b U_{a,1}^2 + c}
+\end{equation}
+
+This function will have the form, 
+
+\centering{
+\includegraphics[width=4in]{Assignments/plot_a1.pdf}}
 \end{Solution}
-% \newpage
+\newpage
 
 \item Using the maximum principle for the entropy, determine the equilibrium temperatures and energies for the two subsystems.
 
 \begin{Solution}
+The entropy will be maximized at the temperature for which $d S = 0$. 
+ 
+So,
 
+\begin{align}
+    d S &= \frac{\partial S}{\partial T_{a,1}}d T_{a,1} + \frac{\partial S}{\partial T_{a,2}}d T_{a,2} = 0\\
+    &=C\left[ \frac{T_{0,1}T_{0,2}}{T_{a,1}T_{a,2}} \right]\left[ \frac{T_{a,2}}{T_{0,1}T_{0,2}} \right]d T_{a,1} + C \left[ \frac{T_{0,1}T_{0,2}}{T_{a,1}T_{a,2}} \right]\left[ \frac{T_{a,1}}{T_{0,1}T_{0,2}} \right]d T_{a,2} = 0\\
+    &= \frac{1}{T_{a,1}} d T_{a,1} + \frac{1}{T_{a,2}} d T_{a,2} = 0 
+\end{align}
+This means entropy is maximized when,
+\begin{equation}
+    \ln{T_{a,1}} = \ln{T_{a,1}}
+\end{equation}
+\begin{equation}
+   \boxed{ T_{a,1}=T_{a,2}}
+\end{equation}
 
 \end{Solution}
 % \newpage
@@ -478,24 +495,55 @@ The total internal energy is conserved, so it is a constant. The initial tempera
 \item Determine the entropy increase for the total system after reaching equilibrium as a function of $T_{0, 1}$ and $T_{0, 2}$
 
 \begin{Solution}
+The total entropy at equilibrium will be,
 
-
+\begin{equation}
+    S_a = C \ln{\frac{T_{a}^2}{T_{0,1}T_{0,2}}}
+\end{equation}
 \end{Solution}
-% \newpage
+\newpage
 
-\item Now consider the case where $T_{0, 1}$ and $T_{0, 2}$ differ only slightly from the equilibrium temperature $T_{f}$ of the total system: $T_{0, 1}=T_{f}+\Delta T / 2$ and $U_{0, 2}=$ $T_{f}-\Delta T / 2 .$ Determine the entropy gain $\Delta S=S_{f}-S_{0}$ up to second order in $\Delta T$ and $\mathrm{up}$ to first order in $\Delta T$ for the individual subsystems. Interpret the result.
+\item Now consider the case where $T_{0, 1}$ and $T_{0, 2}$ differ only slightly from the equilibrium temperature $T_{f}$ of the total system: $T_{0, 1}=T_{f}+\Delta T / 2$ and $T_{0, 2}=$ $T_{f}-\Delta T / 2 .$ Determine the entropy gain $\Delta S=S_{f}-S_{0}$ up to second order in $\Delta T$ and $\mathrm{up}$ to first order in $\Delta T$ for the individual subsystems. Interpret the result.
 
 \begin{Solution}
-
-
+The change in entropy can be expressed as,
+\begin{equation}
+    dS = \frac{C}{T_1}d T_1 + \frac{C}{T_2}d T_2 
+\end{equation}
+For second order accuracy,
+\begin{equation}
+    S_f = S\left(T_{0,1}, T_{0,2}\right) + \left[ \frac{\partial S}{\partial T_1} \Delta T +  \frac{\partial S}{\partial T_2} \Delta T\right] + \frac{1}{4}\left[ \frac{\partial^2 S}{{\partial T_1}^2} {\Delta T}^2 + \frac{\partial^2 S}{{\partial T_2}^2} {\Delta T}^2\right]
+\end{equation}
+where,
+\begin{align}
+    \frac{\partial S}{\partial T_1} = \frac{C}{T_{0,1}} \qquad& \qquad \frac{\partial S}{\partial T_2} = \frac{C}{T_{0,2}}\\
+    \frac{\partial^2 S}{{\partial T_1}^2} = -\frac{C}{T_{0,1}^2} \quad & \quad \frac{\partial^2 S}{{\partial T_2}^2} = -\frac{C}{T_{0,2}^2}
+\end{align}
+So, 
+\begin{equation}
+    S_f = S\left(T_{0,1}, T_{0,2}\right) + \left[ \frac{C}{T_{0,1}} \Delta T +  \frac{C}{T_{0,2}} \Delta T\right] - \frac{1}{4}\left[ \frac{C}{T_{0,1}^2} {\Delta T}^2 +\frac{C}{T_{0,2}^2} {\Delta T}^2\right]
+\end{equation}
+This can be simplified to 
+\begin{equation}
+    S_f = S\left(T_{0,1}, T_{0,2}\right) + C\Delta T\left[ \frac{1}{T_{0,1}} +  \frac{1}{T_{0,2}} \right] - \frac{C{\Delta T}^2}{4}\left[ \frac{1}{T_{0,1}^2} + \frac{1}{T_{0,2}^2}\right]
+\end{equation}
+Since the first order term will be larger than the second order term and the first order term is strictly positive, the small change will cause an increase in $S$, as expected.
 \end{Solution}
 % \newpage
 
 \item Express the entropy $S\left(U_{f}\right)$ and energy $U\left(T_{f}\right)$ of the total system after reaching equilibrium in terms of the total energy $U_{f}$ and equilibrium temperature $T_{f} .$ Discuss your result.
 
 \begin{Solution}
-
-
+\begin{equation}
+    U_f = 2C T_f + 3C T_{0,1} + C T_{0,2}
+\end{equation}
+\begin{equation}
+    T_f = \frac{1}{2C}U_f - \frac{3}{2} T_{0,1} - \frac{1}{2} T_{0,2}
+\end{equation}
+\begin{equation}
+    S_a = C \ln{\frac{\left(\frac{1}{C}U_f - 3 T_{0,1} -  T_{0,2}\right)^2}{4T_{0,1}T_{0,2}}}
+\end{equation}
+These results are consistant with previous parts.
 \end{Solution}
 % \newpage
     
