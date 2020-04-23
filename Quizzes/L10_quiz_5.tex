@@ -1,0 +1,125 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\usepackage{xspace}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{lipsum,xcolor}
+\usepackage{graphicx}
+\usepackage{float,caption,subcaption,wrapfig}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\usepackage[makeroom]{cancel}
+\usepackage[shortlabels]{enumitem}
+\sisetup{mode=text,
+         group-separator={,},
+         detect-all,
+         binary-units,
+         list-units = single,
+         range-units = single,
+         range-phrase = --,
+         per-mode = symbol-or-fraction,
+         list-final-separator = {, and }
+}
+
+\lstset{basicstyle=\ttfamily,
+        breaklines=true,
+        numbersep=-8pt,
+        numberstyle=\small,
+        numbers=right,
+        frame = single, 
+        showstringspaces=false,    
+        keywordstyle=\color{blue}\bf,
+        commentstyle=\color{darkgray},
+        stringstyle=\color{purple}\bf,
+  }
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\bar{bar}
+
+\headheight = 13.6pt
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{PH 641 Sp2020}
+\chead{Quiz 5}
+\rhead{Due 5:00 pm, 21 April 2020}
+
+\rfoot{Submitted by: Paige Lorson}
+\tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
+\newcommand{\volume}{{\ooalign{\hfil$\vol$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newenvironment{Solution}
+    {\textbf{Solution:}
+    
+    \vspace{5mm}
+    \begin{tcolorbox}
+    }
+    {
+    \end{tcolorbox}
+    \vspace{5mm}
+    % \newpage
+    }
+\newcommand{\vol}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\renewcommand\labelitemi{$\cdot$}
+
+\begin{document}
+
+\noindent\textbf{Quiz problem 1:}  
+An experimentalist claims to find that a particular gaseous substance obeys the conditions
+\begin{align*}
+1.\quad& (\partial p / \partial V)_{T}<0 \\
+&\qquad Yes from Mechanical stability\\
+2.\quad& (\partial p / \partial T)_{V}>0 \\
+3.\quad& (\partial \mu / \partial V)_{T}<0 \\
+4.\quad& (\partial \mu / \partial N)_{T}>0\\
+5.\quad& (\partial T / \partial V)_{S}>0
+\end{align*}
+
+
+\begin{enumerate}[a)]
+\item  Identify which of these inequalities are guaranteed by stability. Justify your answer.
+
+\begin{Solution}
+
+The first statement is true due to mechanical stability which concludes that if temperature is constant, and the change of internal energy has to be positive, then $dP$ and $d\vol$ must have different signs.
+
+The third statement is also true by stability because,
+\begin{equation}
+    (\partial \mu / \partial V)_{T} = \vol (\partial p / \partial V)_{T}
+\end{equation}
+ and from stability, 
+ \begin{equation}
+     (\partial p / \partial V)_{T}< 0
+ \end{equation}
+ 
+\end{Solution}
+\item $(*)$ Identify which pair of inequalities is inconsistent with each other and demonstrate why they are inconsistent.
+$(*)$ Note: b) is a little harder than the typical quiz problem. You'll enjoy it
+
+\begin{Solution}
+The two that are inconsistent are (2) and (5). Starting from (2) we can say
+
+\begin{equation}
+    \left.\frac{\partial T}{\partial\vol}\right|_S = -\left.\frac{\partial T}{\partial S}\right|_V \left.\frac{\partial S}{\partial V}\right|_T = -\left.\frac{\partial T}{\partial S}\right|_V \left.\frac{\partial p}{\partial T}\right|_V
+\end{equation}
+The partial $(\partial T/\partial S)_V$ is positive from stability so that means (2) and (5) \textbf{should} be,
+
+\begin{align*}
+2.\quad& (\partial p / \partial T)_{V}>0 \\
+5.\quad& (\partial T / \partial V)_{S}<0
+\end{align*}
+\end{Solution}
+
+\end{enumerate}
+\end{document}
