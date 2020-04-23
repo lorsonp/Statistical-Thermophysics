@@ -1,0 +1,231 @@
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\usepackage{xspace}
+\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{lipsum,xcolor}
+\usepackage{graphicx}
+\usepackage{float,caption,subcaption,wrapfig}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{csquotes}
+\usepackage{siunitx}
+\sisetup{mode=text,
+         group-separator={,},
+         detect-all,
+         binary-units,
+         list-units = single,
+         range-units = single,
+         range-phrase = --,
+         per-mode = symbol-or-fraction,
+         list-final-separator = {, and }
+}
+
+\lstset{basicstyle=\ttfamily,
+        breaklines=true,
+        numbersep=-8pt,
+        numberstyle=\small,
+        numbers=right,
+        frame = single, 
+        showstringspaces=false,    
+        keywordstyle=\color{blue}\bf,
+        commentstyle=\color{darkgray},
+        stringstyle=\color{purple}\bf,
+  }
+
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\bar{bar}
+
+\headheight = 13.6pt
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{PH 641 Sp2020}
+\chead{Assignment 1}
+\rhead{Due 11:59 pm, 17 March 2020}
+
+\rfoot{Submitted by: Paige Lorson}
+\tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
+\newcommand{\volume}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\newenvironment{Solution}
+    {\textbf{Solution:}
+    
+    \vspace{5mm}
+    \begin{tcolorbox}
+    }
+    {
+    \end{tcolorbox}
+    \vspace{5mm}
+    % \newpage
+    }
+\newcommand{\vol}{{\ooalign{\hfil$V$\hfil\cr\kern0.08em--\hfil\cr}}}
+\renewcommand\labelitemi{$\cdot$}
+
+\begin{document}
+
+% \noindent\textbf{Note:} This survey serves to inform your instructor and to test the homework submission via gradescope. It will be graded like a regular homework set.
+
+\begin{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Thermodynamic response functions
+\begin{enumerate}
+
+\item Derive the relation
+$$
+\kappa_{T}-\kappa_{S}=\frac{T V}{C_{p}} \alpha^{2}
+$$
+Hint: Do this systematically: for $C_{p}-C_{V}$ we had the entropy $S$ as starting point. Here, no standard thermodynamic potential is an obvious starting point, you really need $V(p) .$ Start with $V(p, X)$ and make educated choices for $X$
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage
+
+\item Derive the relation:
+$$
+\frac{C_{p}}{C_{v}}=\frac{\kappa_{T}}{\kappa_{S}}
+$$
+\begin{enumerate}
+\item Using the results in part a) and $C_{p}-C_{V}$ derived in class
+
+\begin{Solution}
+
+\end{Solution}
+
+\item Directly without these relations.
+
+\begin{Solution}
+
+\end{Solution}
+\end{enumerate}
+
+\end{enumerate}
+\newpage
+
+\item A one dimensional system (not everything is an ideal gas) For an elastic filament it is found that, at a finite range in temperature, a displacement $x$ requires a force (tension)
+$$
+\tau=a x-b T+c T x
+$$
+where $a, b,$ and $c$ are constants. Furthermore, its heat capacity of constant displacement is proportional to temperature, that is $C_{x}=A(x) T$
+\begin{enumerate}
+    \item Use an appropriate Maxwell relation to calculate $(\partial S / \partial x)_{T}$
+    
+    \begin{Solution}
+
+
+    \end{Solution}
+    \item Show that $A$ has to be in fact be independent of $x,$ that is, $\mathrm{d} A / \mathrm{d} x=0$ and hence $A=A_{0}$
+    
+    \begin{Solution}
+
+
+    \end{Solution}
+    \item Derive an expression for $S(T, x)$ assuming $S(T=0, x=0)=S_{0}$
+    
+    \begin{Solution}
+
+
+    \end{Solution}
+    \item Calculate the heat capacity at constant tension, that is,
+$$
+C_{\tau}=T\left(\frac{\partial S}{\partial T}\right)_{\tau}
+$$
+as a function of $T$ and $\tau$
+    
+    \begin{Solution}
+
+
+    \end{Solution}
+
+\end{enumerate}
+\newpage
+
+\item Consider an ideal gas consisting of $N$ particles (molecules) with $f$ degrees of freedom per molecule. The equation of state and the internal energy $U$ for this gas are given by
+$$
+\begin{array}{l}
+p V=N k T \\
+U=\frac{f}{2} N k T
+\end{array}
+$$
+$(f=3 \text { for a monoatomic gas, } f=5$ for a diatomic gas, etc.)
+
+
+a) 
+b) 
+c) 
+\begin{enumerate}
+\item Consider an adiabatic process with constant particle number $N$. Starting from equations $1,2,$ show that
+$$
+p V^{\gamma}=\text {const.} \quad \text { and } \quad T V^{\gamma-1}=\text {const.}
+$$
+(3)
+and express $\gamma$ in terms of $f: \gamma(f)$
+\begin{Solution}
+
+
+\end{Solution}
+% \newpage
+
+\item Calculate the heat capacities $C_{p}$ and $C_{V}$ for an ideal gas and write $\gamma=\gamma\left(C_{p}, C_{V}\right)$
+\begin{Solution}
+
+\end{Solution}
+
+\item Consider an (idealized) four stroke engine (Otto motor) working with an ideal gas as a working medium. The (idealized) cycle is given in the figure below:
+Determine the efficiency $\eta=\Delta W / \Delta Q$ of this cycle, where $\Delta W$ is the performed work, and $\Delta Q$ is the generated heat during combustion. Express the efficiency in terms of the compression ratio $V_{3} / V_{4}$ of the engine and the degrees of freedom $f$ of the working gas.
+\begin{Solution}
+
+\end{Solution}
+\end{enumerate}
+\newpage
+
+
+
+
+\item Mystery system The internal energy of a system is given as function of temperature and volume by
+$$
+U=a V T^{4}
+$$
+where $a$ is a positive constant.
+\begin{enumerate}
+\item Show that $S=b V T^{3}$ and find $b$ in terms of $a$
+
+\begin{Solution}
+
+\end{Solution}
+
+\item Calculate the Helmholtz free energy $F$, the free energy that depends on
+$T, V,$ and $N$
+
+\begin{Solution}
+
+\end{Solution}
+
+\item Calculate the pressure for the system.
+
+\begin{Solution}
+
+\end{Solution}
+
+\item Calculate the chemical potential for the system. (Bonus) What kind of particle can have such a value for its chemical potential?
+
+\begin{Solution}
+
+\end{Solution}
+% \newpage
+    
+\end{enumerate}
+\end{enumerate}
+\end{document}
