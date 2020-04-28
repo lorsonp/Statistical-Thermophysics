@@ -82,25 +82,51 @@
 \item Thermodynamic response functions
 \begin{enumerate}
 
-\item Derive the relation
-$$
-\kappa_{T}-\kappa_{S}=\frac{T V}{C_{p}} \alpha^{2}
-$$
+\item Derive the relation: $\kappa_{T}-\kappa_{S}=\frac{T V}{C_{p}} \alpha^{2}$
 Hint: Do this systematically: for $C_{p}-C_{V}$ we had the entropy $S$ as starting point. Here, no standard thermodynamic potential is an obvious starting point, you really need $V(p) .$ Start with $V(p, X)$ and make educated choices for $X$
 \begin{Solution}
 
+\begin{equation}
+    \left.\frac{\partial V}{\partial p}\right|_{S,N} =   \left.\frac{\partial V}{\partial p}\right|_{V,N} + 
+    \left.\frac{\partial V}{\partial T}\right|_{p,N} 
+    \left.\frac{\partial T}{\partial S}\right|_{p,N}
+    \left.\frac{\partial S}{\partial P}\right|_{T,N}
+\end{equation}
+\begin{equation}
+    \left.\frac{\partial V}{\partial p}\right|_{S,N} - \left.\frac{\partial V}{\partial p}\right|_{V,N} =     \left.\frac{\partial T}{\partial S}\right|_{p,N} \left.{\frac{\partial V}{\partial T}}^2 \right|_{p,N}
+\end{equation}
+\begin{equation}
+    \left.\frac{\partial V}{\partial p}\right|_{S,N} - \left.\frac{\partial V}{\partial p}\right|_{V,N} = \frac{1}{\left.\frac{\partial S}{\partial T}\right|_{p,N}}     \left.{\frac{\partial V}{\partial T}}^2\right|_{p,N} 
+\end{equation}
+\begin{equation}
+    \frac{1}{V}\left.\frac{\partial V}{\partial p}\right|_{S,N} - \frac{1}{V}\left.\frac{\partial V}{\partial p}\right|_{T,N} = \frac{TV}{T\left.\frac{\partial S}{\partial T}\right|_{p,N}} \frac{1}{V^2}    \left.{\frac{\partial V}{\partial T}}^2\right|_{p,N} 
+\end{equation}
+\begin{equation}
+    \kappa_{T}-\kappa_{S}=\frac{T V}{C_{p}} \alpha^{2}
+\end{equation}
 
 \end{Solution}
 % \newpage
 
-\item Derive the relation:
-$$
-\frac{C_{p}}{C_{v}}=\frac{\kappa_{T}}{\kappa_{S}}
-$$
+\item Derive the relation: $\frac{C_{p}}{C_{v}}=\frac{\kappa_{T}}{\kappa_{S}}$
 \begin{enumerate}
 \item Using the results in part a) and $C_{p}-C_{V}$ derived in class
 
 \begin{Solution}
+From class we have that, 
+\begin{equation}
+    C_p -C_v = \frac{VT \alpha^2}{\kappa_T}
+\end{equation}
+
+\begin{equation}
+    \frac{\kappa_T}{C_p}\left[C_p -C_v\right] = \left[\frac{VT \alpha^2}{\kappa_T}\right]\frac{\kappa_T}{C_p}
+\end{equation}
+\begin{equation}
+    \kappa_T -C_v\frac{\kappa_T}{C_p} = \left[\frac{VT \alpha^2}{\kappa_T}\right]\frac{\kappa_T}{C_p} = \kappa_{T}-\kappa_{S}
+\end{equation}
+\begin{equation}
+    C_v\frac{\kappa_T}{C_p} = \kappa_{T}-\kappa_{S}\qquad \boxed{\frac{C_{p}}{C_{v}}=\frac{\kappa_{T}}{\kappa_{S}}}
+\end{equation}
 
 \end{Solution}
 
@@ -108,6 +134,12 @@ $$
 
 \begin{Solution}
 
+\begin{equation}
+    {\left.\frac{\partial V}{\partial p}\right|_{S,N}}{\left.\frac{\partial S}{\partial T}\right|_{p,N}} = {\left.\frac{\partial V}{\partial p}\right|_{T,N}}{\left.\frac{\partial S}{\partial T}\right|_{V,N}}
+\end{equation}
+\begin{equation}
+    \frac{T\left.\frac{\partial S}{\partial T}\right|_{p,N}}{T\left.\frac{\partial S}{\partial T}\right|_{V,N}} = \frac{- \frac{1}{V}\left.\frac{\partial V}{\partial p}\right|_{T,N}}{- \frac{1}{V}\left.\frac{\partial V}{\partial p}\right|_{S,N}}
+\end{equation}
 \end{Solution}
 \end{enumerate}
 
@@ -123,20 +155,53 @@ where $a, b,$ and $c$ are constants. Furthermore, its heat capacity of constant 
     \item Use an appropriate Maxwell relation to calculate $(\partial S / \partial x)_{T}$
     
     \begin{Solution}
-
-
+    Consider Helmholtz free energy for this system,
+    \begin{equation}
+        dF = - SdT + \tau dx
+    \end{equation}
+    we can use Maxwell relations to say,
+    \begin{equation}
+        \left.\frac{\partial S}{\partial x}\right|_T = -\frac{\partial \tau}{\partial T}_x
+    \end{equation}
+    so, 
+    \begin{equation}
+        \boxed{\left.\frac{\partial S}{\partial x}\right|_T = b-cx}
+    \end{equation}
+    % We can say that ${\partial U}/{\partial x} = \tau$ and we know that, ${\partial U}/{\partial T} = -S$
+ 
     \end{Solution}
     \item Show that $A$ has to be in fact be independent of $x,$ that is, $\mathrm{d} A / \mathrm{d} x=0$ and hence $A=A_{0}$
     
     \begin{Solution}
-
-
+    We are given that $C_{x}=A(x) T$. Heat capacity at constant length is also, $C_{x}={\partial U/\partial T}_x $. This means, 
+    \begin{equation}
+        C_x = T\left.\frac{\partial S}{\partial T}\right|_x = A(x) T
+    \end{equation}
+    \begin{equation}
+        \left.\frac{\partial S}{\partial T}\right|_x = A(x)
+    \end{equation}
+    
+    We can now use this to get $\mathrm{d} A / \mathrm{d} x$.
+    \begin{equation}
+        \frac{dA}{dx} = \frac{d}{dx}\left[\left.\frac{\partial S}{\partial T}\right|_x\right] = \frac{d}{dx}\left[b-xc\right] 
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{dA}{dx} = 0 }
+    \end{equation}
     \end{Solution}
+    \newpage
     \item Derive an expression for $S(T, x)$ assuming $S(T=0, x=0)=S_{0}$
     
     \begin{Solution}
-
-
+    \begin{align}
+        S(T, x) &= \int \left.\frac{\partial S}{\partial T}\right|_x dT + \int \left.\frac{\partial S}{\partial x}\right|_T dx + S_0\\
+        &= \int A dT + \int (b-cx) dx + S_0
+    \end{align}
+    So, 
+    \begin{equation}
+        \boxed{S(T,x) = AT + bx - \frac{1}{2}c x^2 + S_0}
+    \end{equation}
+    
     \end{Solution}
     \item Calculate the heat capacity at constant tension, that is,
 $$
@@ -146,7 +211,20 @@ as a function of $T$ and $\tau$
     
     \begin{Solution}
 
-
+    \begin{equation}
+    \left.\frac{\partial S}{\partial T}\right|_{\tau}=\left.\frac{\partial S}{\partial T}\right|_{x}+\left.\frac{\partial S}{\partial x}\right|_{T} \left.\frac{\partial x}{\partial T}\right|_{\tau}
+    \end{equation}
+    
+    \begin{equation}
+        \left.\frac{\partial S}{\partial T}\right|_{x} = A_0 \qquad \left.\frac{\partial S}{\partial x}\right|_T = b - c x \qquad \left.\frac{\partial x}{\partial T}\right|_{\tau} = \frac{b a -\tau c}{\left(a + c T\right)^2}
+    \end{equation}
+    
+    \begin{equation}
+        \left.\frac{\partial S}{\partial T}\right|_{\tau} = A_0 + \left(b - c x\right)\frac{b a -\tau c}{\left(a + c T\right)^2}
+    \end{equation}
+    \begin{equation}
+        \boxed{C_{\tau} = TA_0 + T\left(b - c x\right)\frac{b a -\tau c}{\left(a + c T\right)^2}}
+    \end{equation}
     \end{Solution}
 
 \end{enumerate}
@@ -162,30 +240,74 @@ $$
 $(f=3 \text { for a monoatomic gas, } f=5$ for a diatomic gas, etc.)
 
 
-a) 
-b) 
-c) 
 \begin{enumerate}
-\item Consider an adiabatic process with constant particle number $N$. Starting from equations $1,2,$ show that
-$$
-p V^{\gamma}=\text {const.} \quad \text { and } \quad T V^{\gamma-1}=\text {const.}
-$$
-(3)
-and express $\gamma$ in terms of $f: \gamma(f)$
-\begin{Solution}
+\item Consider an adiabatic process with constant particle number $N$. Starting from equations $1,2$, show that $p V^{\gamma}=\text {const.}$ and $ T V^{\gamma-1}=\text {const.}$ and express $\gamma$ in terms of $f: \gamma(f)$
 
+\begin{Solution}
+\begin{equation}
+    d\left( p V \right) = d \left( N k T\right)
+\end{equation}
+\begin{equation}
+    V dp + p dV = NkdT
+\end{equation}
+But also, 
+\begin{equation}
+    \frac{f}{2}Nk dT = -p dV
+\end{equation}
+So, 
+\begin{equation}
+    {-{N k}p dV} = {\frac{f}{2}Nk}[{V dp + p dV}]
+\end{equation}
+\begin{equation}
+-\left({\frac{f}{2}Nk}+{Nk}\right)p dV = \frac{f}{2}Nk V dp    
+\end{equation}
+\begin{equation}
+    \left(\frac{V_2}{V_1}\right)^{\left(\frac{{\frac{f}{2}Nk}+{Nk}}{\frac{f}{2}Nk}\right)} = \frac{p_1}{p_2}
+\end{equation}
+So, 
+\begin{equation}
+   \boxed{ pV^{\frac{{\frac{f}{2}Nk}+{Nk}}{\frac{f}{2}Nk}} = \text{const.}}
+\end{equation}
+
+Now, $\gamma$ is given by
+\begin{equation}
+    \boxed{\gamma = {\frac{{f}+{2}}{f}}}
+\end{equation}
+and 
+
+\begin{equation}
+    \frac{f}{2}Nk dT = -\frac{NkT}{V} dV
+\end{equation}
+\begin{equation}
+    \frac{f}{2T} dT = -\frac{1}{V} dV
+\end{equation}
+\begin{equation}
+    \boxed{TV^\frac{2}{f} = TV^{\gamma-1} = \text{const.}}
+\end{equation}
 
 \end{Solution}
-% \newpage
+\newpage
 
 \item Calculate the heat capacities $C_{p}$ and $C_{V}$ for an ideal gas and write $\gamma=\gamma\left(C_{p}, C_{V}\right)$
-\begin{Solution}
 
+\begin{Solution}
+\begin{equation}
+    \boxed{C_v = \frac{f}{2}Nk} \qquad \boxed{C_p = \frac{f}{2}Nk + Nk}
+\end{equation}
+so,
+\begin{equation}
+    \boxed{\gamma = \frac{C_p}{C_v}}
+\end{equation}
 \end{Solution}
 
 \item Consider an (idealized) four stroke engine (Otto motor) working with an ideal gas as a working medium. The (idealized) cycle is given in the figure below:
 Determine the efficiency $\eta=\Delta W / \Delta Q$ of this cycle, where $\Delta W$ is the performed work, and $\Delta Q$ is the generated heat during combustion. Express the efficiency in terms of the compression ratio $V_{3} / V_{4}$ of the engine and the degrees of freedom $f$ of the working gas.
+
 \begin{Solution}
+For the Otto cycle, efficiency is 
+\begin{equation}
+    \eta = 1 - \frac{1}{\frac{V_3}{V_4}^{\frac{{f}+{2}}{f}-1}}
+\end{equation}
 
 \end{Solution}
 \end{enumerate}
@@ -203,26 +325,51 @@ where $a$ is a positive constant.
 \item Show that $S=b V T^{3}$ and find $b$ in terms of $a$
 
 \begin{Solution}
-
+Recall, that 
+\begin{equation}
+    \left.\frac{\partial U}{\partial T}\right|_V = T \left.\frac{\partial S}{\partial T}\right|_V
+\end{equation}
+So then, 
+\begin{equation}
+     \left.\frac{\partial U}{\partial T}\right|_V = 4aVT^3, \qquad \left.\frac{\partial S}{\partial T}\right|_V = 4aVT^2
+\end{equation}
+\begin{equation}
+    \boxed{S = bVT^3, \qquad b = \frac{4a}{3}}
+\end{equation}
 \end{Solution}
 
 \item Calculate the Helmholtz free energy $F$, the free energy that depends on
 $T, V,$ and $N$
 
 \begin{Solution}
-
+\begin{equation}
+    F = U - TS
+\end{equation}
+\begin{equation}
+    F = aVT^4 - \frac{4}{3}aVT^4
+\end{equation}
+\begin{equation}
+    \boxed{F = -\frac{1}{3}aVT^4}
+\end{equation}
 \end{Solution}
 
 \item Calculate the pressure for the system.
 
 \begin{Solution}
-
+\begin{equation}
+    p = -\left.\frac{\partial F}{\partial V}\right|_T = \boxed{\frac{1}{3}aT^4}
+\end{equation}
 \end{Solution}
 
 \item Calculate the chemical potential for the system. (Bonus) What kind of particle can have such a value for its chemical potential?
 
 \begin{Solution}
-
+\begin{equation}
+    \mu = G = U - T S + p V
+\end{equation}
+\begin{equation}
+    \boxed{\mu = -\frac{1}{3}aVT^4 + \frac{1}{3}aVT^4 = 0}
+\end{equation}
 \end{Solution}
 % \newpage
     
