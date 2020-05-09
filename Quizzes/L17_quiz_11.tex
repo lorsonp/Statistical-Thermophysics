@@ -1,3 +1,5 @@
+
+
 \documentclass[10pt]{article}
 
 \usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
@@ -53,8 +55,8 @@
 \pagestyle{fancy}
 
 \lhead{PH 641 Sp2020}
-\chead{Quiz 8}
-\rhead{Due 5:00 pm, 27 April 2020}
+\chead{Quiz 11}
+\rhead{Due 5:00 pm, 9 May 2020}
 
 \rfoot{Submitted by: Paige Lorson}
 \tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
@@ -75,34 +77,28 @@
 
 \begin{document}
 
-\noindent\textbf{Quiz problem 1:} Stirling's approximation $\ln N ! \approx N \ln N-N$
+\noindent\textbf{Quiz problem 1: Function of a random variable is a random variable}  A continuous random variable $x$ has an associated probability distribution
+\[
+p(x)=\frac{\lambda}{2} \exp (-\lambda|x|)
+\]
 
 \begin{enumerate}
 
-    \item Derive an approximation for $\ln N !$ by first, converting the expression into a sum and second, approximating the sum as an integral and performing the integral.
+    \item Plot $p(x)$ and determine $\lambda$
+A function $F(x)=x^{2}$ defines a new random variable $f=F(x)$
 
 \begin{Solution}
-\begin{align}
-    \ln{N!} &= \sum_k=1^N \ln{k}\\
-            &\approx \int_1^N \ln{k} dk
-\end{align}
-\begin{align}
-    \int_1^N \ln{k} dk &=[k \ln {k}-k]_{1}^{N}\\
-                       &=N \ln {N}-N+1\\
-                       &\approx N \ln{N}-N
-\end{align}
-
-    
+The integral of $p(x)$ is
+\begin{equation}
+    \left[1/4 e^{-\lambda x} \left(-1 + 2 e^{\lambda x} + e^{2 \lambda x} - \left(-1 + e^{\lambda x}\right)^2 |x|\right)\right]_{-\infty}^\infty
+\end{equation}
+This expression is 1 if $\boxed{\lambda >0}$
 \end{Solution}
 
-    \item What are the approximations that you made following this recipe? Estimate the magnitudes and give the sign of these errors.
+    \item Calculate and plot $p_{F}(f)$
 
 \begin{Solution}
-In changing the sum to an integral, we are basically taking a reverse riemann sum. So,
-\begin{align}
-    err &\leq \left[\ln{N} - \ln{1}\right]\frac{N-1}{N}\\
-    &\leq \ln{N}-\frac{\ln{N}}{N}
-\end{align}
+
 \end{Solution}
 \end{enumerate}
 
