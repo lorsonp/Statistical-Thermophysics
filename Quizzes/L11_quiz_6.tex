@@ -75,33 +75,29 @@
 
 \begin{document}
 
-\noindent\textbf{Quiz problem 1:}  You are given several unusual ‘three-sided’ dice which, when rolled, show either one, two, or three spots. There are three games played with these dice: Distinguishable, Bosons, and Fermions. In each turn in these games, the player rolls one die at a time, starting over if required by the rules, until a legal combination occurs. In Distinguishable, all rolls are legal. In Bosons, a roll is legal only if the new number is larger or equal to the preceding number. In Fermions, a roll is legal only if the new number is strictly larger than the preceding number. See Fig. 1.4 for a table of possibilities after rolling two dice. Our dice rules are the same ones that govern the quantum statistics of identical particles.
-\includegraphics[]{fig}
-\begin{enumerate}
-    \item Presume the dice are fair: each of the three numbers of dots shows up $1 / 3$ of the time. For a legal turn rolling a die twice in Bosons, what is the probability $\rho(4)$ of rolling a $4 ?$ Similarly, among the legal Fermion turns rolling two dice, what is the probability $\rho(4) ?$
+\noindent\textbf{Quiz problem 1:}  The van der Waals (vdW) equation
+$$
+\left(P+N^{2} a / V^{2}\right)(V-N b)=N k_{B} T
+$$
+is often applied as an approximate equation of state for real liquids and gases. The term $V-N b$ arises from short-range repulsion between molecules (Exercise 3.5 ); the term $N^{2} a / V^{2}$ incorporates the leading effects $^{20}$ of long-range attraction between molecules.
 
-\begin{Solution}
+Figure 11.13 shows the val $W$ pressure versus volume curves for one mole of $\mathrm{H}_{2} \mathrm{O}$. Trace over the figure, or download a version from the book web site $[126] . \quad$By hand, roughly implement the
+Maxwell construction for each curve, and sketch
+the region in the $\overrightarrow{P-V}$ plane where liquid and gas can coexist.
 
-\end{Solution}
-
-    \item For a legal turn rolling three 'three-sided' dice in Fermions, what is the probability $\rho(6)$ of rolling a 6 ? (Hint: There is a Fermi exclusion princiTele: when playing Fermions, no two dice can have the same number of dots showing.) Electrons are fermions; no two electrons can be in exactly the same state. When rolling two dice in Bosons, there are six different legal turns $(11),(12),(13), \ldots,(33) ;$ half of them are doubles (both numbers equal), while for plain old Distinguishable turns only one-third would be doubles'; the probability of getting doubles is enhanced by 1.5 times in two-roll Bosons. When rolling three dice in Bosons, there are ten different legal turns $(111),(112),(113), \ldots,(333)$ When rolling $M$ dice each with $N$ sides in Bosons, one can show that there are
-    $$
-    \left(\begin{array}{c}
-    N+M-1 \\
-    M
-    \end{array}\right)=\frac{(N+M-1) !}{M !(N-1) !}
-    $$
-    legal turns. 
-
-\begin{Solution}
+\begin{Solution}\centering{
+\includegraphics[width=4in]{Quizzes/dome_EOPC_fig11_13.pdf}}
 
 \end{Solution}
 
-    \item In a turn of three rolls, what is the factor by which the probability of getting triples in Bosons is enhanced over that in Distinguishable? In a turn of $M$ rolls, what is the enhancement factor for generating an M-tuple (all rolls having the same number of dots showing)? Notice that the states of the dice tend to cluster together in Bosons. Examples of real bosons clustering into the same state include Bose condensation (Section $7.6 .3 \text { ) and lasers (Exercise } 7.9)$
+
+\noindent\textbf{Quiz problem 2:} The top of the coexistence curve in Fig. 11.13 is the pressure, density, and temperature at which the distinction between liquid and gas disappears. It is the focus of much study, as the prime example of a critical point, with self-similar fluctuations and scaling behavior.
+(a) Identify this point on a sketch of Fig. 11.13 The vdW constants are fit to the critical temperature $T_{c}=647.3 \mathrm{K}$ and pressure $P_{c} = 22.09 \mathrm{MPa}=220.9 \times 10^{6} \mathrm{dyne} / \mathrm{cm}^{2} ;$ check that
+your estimate for the critical point roughly agrees with the values quoted. I have found few references that quote the critical volume per mole, and the two I have found disagree; one says around $50 \mathrm{cm}^{3} / \mathrm{mol}$ and one says around $55 .$ Plot the true critical point on your sketch. Is the location of the critical density of water predicted well by the vdW equation of state?
 
 \begin{Solution}
-
+\centering{
+\includegraphics[width=4in]{Quizzes/critPt- EOPC_fig11_13.pdf}}
 \end{Solution}
-\end{enumerate}
 
 \end{document}

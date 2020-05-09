@@ -53,8 +53,8 @@
 \pagestyle{fancy}
 
 \lhead{PH 641 Sp2020}
-\chead{Quiz 8}
-\rhead{Due 5:00 pm, 27 April 2020}
+\chead{Quiz 10}
+\rhead{Due 5:00 pm, 7 May 2020}
 
 \rfoot{Submitted by: Paige Lorson}
 \tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
@@ -75,35 +75,29 @@
 
 \begin{document}
 
-\noindent\textbf{Quiz problem 1:} Stirling's approximation $\ln N ! \approx N \ln N-N$
 
-\begin{enumerate}
-
-    \item Derive an approximation for $\ln N !$ by first, converting the expression into a sum and second, approximating the sum as an integral and performing the integral.
-
+\noindent\textbf{Quiz problem 1:} Show that the probabilities for microstates are independent of an overall shift in the energy scale, i.e. a system consisting of microstates with energies $\varepsilon_{\alpha}$ will have unchanged canonical probabilities when all energies are shifted by $\varepsilon_{0}: \varepsilon_{\alpha^{\prime}}=\varepsilon_{0}+\varepsilon_{\alpha}$
+% \begin{enumerate}
+%     \item 
 \begin{Solution}
+for a canonical ensemble.
+\begin{equation}
+    p_\alpha = \frac{1}{z}e^{-\beta \varepsilon_\alpha}
+\end{equation}
+and 
+\begin{equation}
+    z = \sum_\alpha e^{-\beta \varepsilon_\alpha}
+\end{equation}
+if we shift all energies by $\varepsilon_{0}$, then
+
 \begin{align}
-    \ln{N!} &= \sum_k=1^N \ln{k}\\
-            &\approx \int_1^N \ln{k} dk
-\end{align}
-\begin{align}
-    \int_1^N \ln{k} dk &=[k \ln {k}-k]_{1}^{N}\\
-                       &=N \ln {N}-N+1\\
-                       &\approx N \ln{N}-N
+    z &= \sum_\alpha e^{-\beta\left( \varepsilon_\alpha+\varepsilon_{0}\right)}\\
+    &= \sum_\alpha e^{-\beta \varepsilon_\alpha}e^{-\beta \varepsilon_0}\\
+    &= e^{-\beta \varepsilon_0}\sum_\alpha e^{-\beta \varepsilon_\alpha}
 \end{align}
 
-    
+
 \end{Solution}
-
-    \item What are the approximations that you made following this recipe? Estimate the magnitudes and give the sign of these errors.
-
-\begin{Solution}
-In changing the sum to an integral, we are basically taking a reverse riemann sum. So,
-\begin{align}
-    err &\leq \left[\ln{N} - \ln{1}\right]\frac{N-1}{N}\\
-    &\leq \ln{N}-\frac{\ln{N}}{N}
-\end{align}
-\end{Solution}
-\end{enumerate}
+% \end{enumerate}
 
 \end{document}
