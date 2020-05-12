@@ -1,5 +1,3 @@
-
-
 \documentclass[10pt]{article}
 
 \usepackage[letterpaper,left=0.5in,right=0.5in,top=1in,bottom=1in]{geometry}
@@ -55,8 +53,8 @@
 \pagestyle{fancy}
 
 \lhead{PH 641 Sp2020}
-\chead{Quiz 11}
-\rhead{Due 5:00 pm, 9 May 2020}
+\chead{Quiz 12}
+\rhead{Due 5:00 pm, 12 May 2020}
 
 \rfoot{Submitted by: Paige Lorson}
 \tcbset{width=(\linewidth-2mm),before=,after=\hfill,colframe=black,colback=white,}
@@ -77,32 +75,28 @@
 
 \begin{document}
 
-\noindent\textbf{Quiz problem 1: Function of a random variable is a random variable}  A continuous random variable $x$ has an associated probability distribution
+\noindent\textbf{Quiz problem 1:} A continuous random variable $x$ has an associated probability distribution
 \[
 p(x)=\frac{\lambda}{2} \exp (-\lambda|x|)
 \]
 
 \begin{enumerate}
 
-    \item Plot $p(x)$ and determine $\lambda$
-A function $F(x)=x^{2}$ defines a new random variable $f=F(x)$
+    \item Plot $p(x)$ and determine all allowed value(s) for $\lambda$
+
 
 \begin{Solution}
-The integral of $p(x)$ is
-\begin{equation}
-    \left[1/4 e^{-\lambda x} \left(-1 + 2 e^{\lambda x} + e^{2 \lambda x} - \left(-1 + e^{\lambda x}\right)^2 |x|\right)\right]_{-\infty}^\infty
-\end{equation}
-This expression is 1 if $\boxed{\lambda >0}$
 
-\centering{
-\includegraphics[width=4in]{Quizzes/plot_q11.png}}
 \end{Solution}
 
-    \item Calculate and plot $p_{F}(f)$
+    \item A function $F(x)=x^{2}$ defines a new random variable $f=F(x)$. Calculate and write down $p_{F}(f) .$ Plot $p_{F}(f)$
+Reminders:
+i) $|x|=:$ absolute value of $x$
+ii) $p_{F}(f)=\sum_{i} p\left(x_{i}\right)\left|\frac{d x}{d F}\right|_{x=x_{i}}$ Multiple values of $x$ can map onto one value of $f$
+iii) In b) the new random variable is $f .$ You are calculating and plotting $p(f),$ there should be no more $x$ in your answer.
 
 \begin{Solution}
-\centering{
-\includegraphics[width=4in]{Quizzes/plot_q11b.png}}
+
 \end{Solution}
 \end{enumerate}
 
